@@ -10,15 +10,20 @@ if (savedValue) {
 }
 
 form.addEventListener('input', () => {
-    const currentValue = {
+    const formData = {
         email: email.value,
         message: textarea.value
     };
-    localStorage.setItem(localStorageKey, JSON.stringify(currentValue));
+    localStorage.setItem(localStorageKey, JSON.stringify(formData));
 });
 
 form.addEventListener('submit', event => {
     event.preventDefault();
+
+    if (!email.value || !textarea.value) {
+        alert('Fill please all fields');
+        return;
+    }
     console.log(`Email: ${email.value}, message: ${textarea.value}`);
     localStorage.removeItem(localStorageKey);
     form.reset();
