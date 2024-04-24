@@ -3,7 +3,7 @@ const localStorageKey = "feedback-form-state";
 const email = form.elements.email;
 const textarea = form.elements.message;
 
-const savedValue = JSON.parse(localStorage.getItem(localStorageKey));
+const savedValue = localStorage.getItem(localStorageKey);
 if (savedValue) {
     email.value = savedValue.email || '';
     textarea.value = savedValue.message || '';
