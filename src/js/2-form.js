@@ -11,8 +11,8 @@ if (savedValue) {
 
 form.addEventListener('input', () => {
     const formData = {
-        email: email.value,
-        message: textarea.value
+        email: email.value.trim(),
+        message: textarea.value.trim()
     };
     localStorage.setItem(localStorageKey, JSON.stringify(formData));
 });
@@ -24,7 +24,7 @@ form.addEventListener('submit', event => {
         alert('Fill please all fields');
         return;
     }
-    console.log(`Email: ${email.value}, message: ${textarea.value}`);
+    console.log({ email: email.value.trim(), message: textarea.value.trim() });
     localStorage.removeItem(localStorageKey);
     form.reset();
 });
